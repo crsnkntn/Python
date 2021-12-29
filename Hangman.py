@@ -1,13 +1,15 @@
-import time, random
+from random import randint
+from typing import List
 
+# a somewhat limited word bank
 words = ["Banana", "Minion", "Peter Parker Picked a Pickled Pepper", "Sea World"]
 
-def get_random_word():
+def get_random_word() -> str:
     global words
-    i = random.randint(0, len(words) - 1)
+    i = randint(0, len(words) - 1)
     return words[i]
 
-def print_hidden_word(word, found):
+def print_hidden_word(word: str, found: List[bool]) -> None:
     output = ""
     for i, n in enumerate(word):
         if found[i]:
@@ -20,7 +22,7 @@ def print_hidden_word(word, found):
     print('\n{}\n'.format(output))
 
 
-def hangman():
+def hangman() -> None:
     word = get_random_word()
     found = [False] * len(word)
     while False in found:

@@ -11,7 +11,7 @@
 #
 #        For example, '<<>><' will return 4
 
-def solution(s):
+def solution(s: str) -> int:
     i, j = 0, len(s) - 1
     while i <= j and s[i] != '>':
         i += 1

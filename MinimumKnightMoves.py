@@ -7,11 +7,9 @@
 #       The chess board squares are 0-63
 #
 #       Additional requirement: MUST BE FAST
+from typing import List
 
-import timeit
-import numpy
-
-def gen_moves(memo, dest, num_moves):
+def gen_moves(memo: List[List[bool]], dest: int, num_moves: int) -> int:
     for i, n in enumerate(memo[:]):
         if not n:
             continue
@@ -28,7 +26,7 @@ def gen_moves(memo, dest, num_moves):
     return gen_moves(memo, dest, num_moves + 1)
    
 
-def solution(src, dest):
+def solution(src: int, dest: int) -> int:
     moves = [[2, 1], [-2, 1], [2, -1], [-2, -1], [1, 2], [-1, 2], [1, -2], [-1, -2]]
     memo = [False] * 64
     memo[src] = True
@@ -36,9 +34,8 @@ def solution(src, dest):
     return n
 
 
-def main():
+def main() -> None:
     print(solution(0, 1))
-
 
 
 if __name__ == "__main__":

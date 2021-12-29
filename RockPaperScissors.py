@@ -1,9 +1,9 @@
-import random
+from random import randint
 
 options = ["Rock", "Paper", "Scissors"]
 
 # 0 => a wins, 1 => b wins, 2 => tie
-def rules(a, b): 
+def rules(a: str, b: str) -> int: 
     print(a, "  vs.  ", b)
     if a == b:
         return 2
@@ -23,12 +23,12 @@ def rules(a, b):
         return 2 
 
 
-def rockpaperscissors():
+def rockpaperscissors() -> None:
     player_wins, rounds = 0, 0
     player, chaos = "Rock", "Paper"
     while player in options:
         player = input("Rock, Paper, or Scissors?\n")
-        chaos = options[random.randint(0, 2)]
+        chaos = options[randint(0, 2)]
         result = rules(player, chaos)
         if result == 0:
             player_wins += 1
